@@ -1,0 +1,71 @@
+@import "variables";
+
+@mixin bg-main {
+  background-color: var(--bg-main) ;
+}
+
+@mixin bg-header {
+  background-color: var(--bg-header) ;
+}
+
+@mixin bg-sidebar {
+  background-color: var(--bg-sidebar);
+}
+
+@mixin bg-overlay {
+  background-color: var(--bg-overlay);
+}
+
+@mixin background-blur {
+  backdrop-filter: blur(10px);
+}
+
+@mixin bg-service-gradient {
+  background: var(--gradient-service);
+  box-shadow: var(--shadow-service);
+}
+
+@mixin bg-fade-right {
+  background: var(--gradient-fade-right);
+}
+
+@mixin bg-fade-left {
+  background: var(--gradient-fade-left);
+}
+
+@mixin prices-grid($columns) {
+  display: grid;
+  align-items: center;
+  grid-template-columns: $columns;
+}
+
+@mixin font-style($weight: $font-weight-regular, $size: $font-size-base, $line-height: $line-height-base) {
+  font-family: $font-body;
+  font-weight: $weight;
+  font-size: $size;
+  line-height: $line-height;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
