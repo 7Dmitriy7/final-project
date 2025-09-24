@@ -628,10 +628,6 @@ nav.menu-header {
 
 
               //модалка
-
-
-
-
 .modal {
   display: flex;
   position: fixed;
@@ -640,13 +636,16 @@ nav.menu-header {
   width: 320px;
   height: 100%;
   @include bg-header;
-  box-shadow: 0 0 40px rgb(3, 3, 3);
+  box-shadow: inset 1px 0 0 rgba(65, 246, 215, 0.2);
   z-index: 100;
   opacity: 0;
   pointer-events: none;
   transform: translateX(100%);
-  transition: opacity 0.3s ease, transform 0.3s ease;
-
+//  transition: opacity 0.3s ease, transform 0.3s ease;
+//  @media (min-width: 1440px) {
+//    right: calc(50% - 720px);
+//    width: 440px;
+//  }
 }
 
 body.modal-open {
@@ -671,7 +670,7 @@ body.modal-open {
 .modal--open {
   opacity: 1;
   transform: translateX(0);
-
+  pointer-events: auto;
 }
 
 .modal__close-top {
@@ -681,23 +680,26 @@ body.modal-open {
 }
 
 .modal__close-top-img {
-  pointer-events: none; /* Чтобы клик проходил на button, а не на img */
+//  pointer-events: none;
 }
 
 
 .modal__text {
   @include font-style($weight: $font-weight-bold, $size: 24px, $line-height: 32px );
   color: #1B1C21;
+  position: relative;
+  z-index: 300;
+  pointer-events: all;
 }
 
 .modal__textarea,
 .modal__input {
   @include font-style($weight: $font-weight-medium, $size: 16px, $line-height: 24px );
   color: #B5B6BC ;
+
 }
 
 button.modal__submit {
-
   border:  none;
   background: none;
   cursor: pointer;
@@ -717,7 +719,6 @@ button.modal__submit {
 }
 
 .modal {
-//  display: flex;
   width: 320px;
   height: 100%;
 }
@@ -726,6 +727,8 @@ button.modal__submit {
   display: flex;
   flex-direction: column;
   gap: 24px;
+  position: relative;
+  z-index: 100;
 }
 
 .modal__close-top  {
@@ -784,7 +787,6 @@ button.modal__submit {
 .menu__button--hide,
 .header__button--menu,
 .modal__close-top {
-
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 
   img {

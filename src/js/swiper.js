@@ -144,7 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-
+      // модалка
 
 document.addEventListener('DOMContentLoaded', function() {
   // для первой модалки (обратная связь)
@@ -155,12 +155,12 @@ document.addEventListener('DOMContentLoaded', function() {
   const openPhoneButton = document.querySelector('.menu__button--modal-phone');
   const phoneModal = document.querySelector('.modal--callback');
 
-  // функция для запрета скролла
+
   function disableBodyScroll() {
     document.body.classList.add('modal-open');
   }
 
-  // функция для разрешения скролла
+
   function enableBodyScroll() {
     document.body.classList.remove('modal-open');
   }
@@ -169,7 +169,7 @@ document.addEventListener('DOMContentLoaded', function() {
   function closeAllModals() {
     if (messageModal) messageModal.classList.remove('modal--open');
     if (phoneModal) phoneModal.classList.remove('modal--open');
-    enableBodyScroll(); // Разрешаем скролл при закрытии
+    enableBodyScroll();
   }
 
   // для первой модалки (обратная связь)
@@ -179,18 +179,18 @@ document.addEventListener('DOMContentLoaded', function() {
     openMessageButton.addEventListener('click', function() {
       closeAllModals();
       messageModal.classList.add('modal--open');
-      disableBodyScroll(); // Запрещаем скролл при открытии
+      disableBodyScroll();
     });
 
     if (closeButton) {
       closeButton.addEventListener('click', closeAllModals);
     }
 
-    messageModal.addEventListener('click', function(e) {
-      if (e.target === messageModal) {
-        closeAllModals();
-      }
-    });
+    // messageModal.addEventListener('click', function(e) {
+    //   if (e.target === messageModal) {
+    //     closeAllModals();
+    //   }
+    // });
   }
 
   // для второй модалки (заказ звонка)
@@ -200,21 +200,21 @@ document.addEventListener('DOMContentLoaded', function() {
     openPhoneButton.addEventListener('click', function() {
       closeAllModals();
       phoneModal.classList.add('modal--open');
-      disableBodyScroll(); // Запрещаем скролл при открытии
+      disableBodyScroll();
     });
 
     if (closeButton) {
       closeButton.addEventListener('click', closeAllModals);
     }
 
-    phoneModal.addEventListener('click', function(e) {
-      if (e.target === phoneModal) {
-        closeAllModals();
-      }
-    });
+    // phoneModal.addEventListener('click', function(e) {
+    //   if (e.target === phoneModal) {
+    //     closeAllModals();
+    //   }
+    // });
   }
 
-  // Закрытие по Escape
+  //  Esc
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
       closeAllModals();
@@ -222,10 +222,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-
-
-
-// только если элементы существуют
+// элементы существуют
 document.addEventListener('DOMContentLoaded', function() {
   if (document.querySelector('.swiper') || document.querySelector('.service__swiper')) {
     initSwiper();
