@@ -45,7 +45,8 @@
   --prices-grid-tablet: 348px minmax(24px, 1fr) 74px minmax(22px, 1fr) 81px minmax(20px, 1fr) 119px;
 }
 
-
+html, body { overflow-x: hidden;   max-width: 100%;
+}
 
 
 body {
@@ -54,6 +55,8 @@ body {
   min-width: 320px;
   max-width: 100%;
   -webkit-tap-highlight-color: transparent;
+  width: 100%;
+  position: relative;
 }
 
 .menu-main {
@@ -625,6 +628,10 @@ nav.menu-header {
 
 
               //модалка
+
+
+
+
 .modal {
   display: flex;
   position: fixed;
@@ -639,6 +646,14 @@ nav.menu-header {
   pointer-events: none;
   transform: translateX(100%);
   transition: opacity 0.3s ease, transform 0.3s ease;
+
+}
+
+body.modal-open {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  height: 100%;
 }
 
 .modal::before {
@@ -655,9 +670,18 @@ nav.menu-header {
 
 .modal--open {
   opacity: 1;
-  pointer-events: all;
   transform: translateX(0);
 
+}
+
+.modal__close-top {
+  z-index: 101;
+  pointer-events: all;
+  cursor: pointer;
+}
+
+.modal__close-top-img {
+  pointer-events: none; /* Чтобы клик проходил на button, а не на img */
 }
 
 
@@ -819,7 +843,7 @@ button.modal__submit {
   }
 
   .main__article-image img {
-    width: 100vw;
+    width: 100%;
     height: auto;
     display: block;
     margin: 0;
@@ -1044,9 +1068,7 @@ button.modal__submit {
 
   }
 
-  .footer__copyright {
 
-  }
 
 //  модалка
 //  .modal__close-left-img  {
@@ -1061,7 +1083,7 @@ button.modal__submit {
 //  }
 //
 //  .modal__block-main {
-/
+
 
 }
 
@@ -1427,7 +1449,6 @@ button.modal__submit {
   }
 
   //Цены на услуги
-
   .prices__label {
     display: none;
   }
@@ -1458,7 +1479,6 @@ button.modal__submit {
     display: flex;
   }
 
-
   .menu-header {
     position: static;
     left: auto;
@@ -1478,37 +1498,30 @@ button.modal__submit {
   }
 
   //Цены на услуги
-
   .prices__label {
     display: none;
   }
 
 //  подвал
-
-  .modal__close-left {
-    display: flex;
-  }
-
   .modal {
     display: flex;
     width: 440px;
     height: 100%;
-//    overflow: hidden;
-//    position: relative;
+    padding-top: 32px;
   }
 
-  .modal__close-top-img {
+  .modal__close-top {
     position: absolute;
-    top: 39px;
-    left: -65px;
-    cursor: pointer;
+    left: -72px;
+    top: 32px;
     z-index: 101;
+    cursor: pointer;
+    display: flex;
     padding: 0;
   }
 
-  .modal__close-top  {
-    padding-top: 6px;
-
+  .modal__close-top-img {
+    position: static;
   }
 
   .modal__input,

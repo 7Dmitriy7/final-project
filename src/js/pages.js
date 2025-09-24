@@ -38,6 +38,7 @@ export function createPages() {
   pages.className = "pages"
 
  pages.innerHTML = `
+<div class="site-container">
 <div class="menu-main">
 
    <nav class="menu-header">
@@ -478,7 +479,7 @@ export function createPages() {
             <button type="submit" class="modal__submit"><img src="${submitIcon}" alt="отправить"></button>
          </div> 
        </div>
-       </div>
+       
     </aside>
     
     <aside class="modal modal--callback">
@@ -515,6 +516,8 @@ export function createPages() {
     </aside>
     
   </main>
+ </div>
+ </div>
  </div>
 `;
   return pages;

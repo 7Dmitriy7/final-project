@@ -144,6 +144,8 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+
+
 document.addEventListener('DOMContentLoaded', function() {
   // для первой модалки (обратная связь)
   const openMessageButton = document.querySelector('.menu__button--modal-message');
@@ -153,10 +155,21 @@ document.addEventListener('DOMContentLoaded', function() {
   const openPhoneButton = document.querySelector('.menu__button--modal-phone');
   const phoneModal = document.querySelector('.modal--callback');
 
+  // функция для запрета скролла
+  function disableBodyScroll() {
+    document.body.classList.add('modal-open');
+  }
+
+  // функция для разрешения скролла
+  function enableBodyScroll() {
+    document.body.classList.remove('modal-open');
+  }
+
   // закрытия всех модалок
   function closeAllModals() {
     if (messageModal) messageModal.classList.remove('modal--open');
     if (phoneModal) phoneModal.classList.remove('modal--open');
+    enableBodyScroll(); // Разрешаем скролл при закрытии
   }
 
   // для первой модалки (обратная связь)
@@ -166,6 +179,7 @@ document.addEventListener('DOMContentLoaded', function() {
     openMessageButton.addEventListener('click', function() {
       closeAllModals();
       messageModal.classList.add('modal--open');
+      disableBodyScroll(); // Запрещаем скролл при открытии
     });
 
     if (closeButton) {
@@ -179,13 +193,14 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  //  для второй модалки (заказ звонка)
+  // для второй модалки (заказ звонка)
   if (openPhoneButton && phoneModal) {
     const closeButton = phoneModal.querySelector('.modal__close-top');
 
     openPhoneButton.addEventListener('click', function() {
       closeAllModals();
       phoneModal.classList.add('modal--open');
+      disableBodyScroll(); // Запрещаем скролл при открытии
     });
 
     if (closeButton) {
@@ -199,13 +214,16 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // Закрыт
+  // Закрытие по Escape
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
       closeAllModals();
     }
   });
 });
+
+
+
 
 // только если элементы существуют
 document.addEventListener('DOMContentLoaded', function() {
